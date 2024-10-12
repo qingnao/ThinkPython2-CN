@@ -12,6 +12,7 @@ License: http://creativecommons.org/licenses/by/4.0/
 from __future__ import print_function, division
 
 import bisect
+import os
 
 
 def make_word_list():
@@ -20,7 +21,7 @@ def make_word_list():
     returns: list of strings
     """
     word_list = []
-    fin = open('words.txt')
+    fin = open('/Users/dengwentao/work/python_project/ThinkPython2-CN/code/words.txt')
     for line in fin:
         word = line.strip()
         word_list.append(word)
@@ -37,13 +38,17 @@ def in_bisect(word_list, word):
 
     returns: True if the word is in the list; False otherwise
     """
+    # 单词列表已经排好序。列表长度如果为0直接返回false。
     if len(word_list) == 0:
         return False
 
-    i = len(word_list) // 2
+    # 如果第一次二分后获得这个值，返回True。
+    i = len(word_list) // 2 # // 执行整数除法，舍弃小数。
     if word_list[i] == word:
         return True
 
+    # 如果二分后取的单词比word大，就截取前半段进行二分法。递归调用自己。
+    # 使用切片获取列表前半段，截止到i，因为i的值已经判断过。
     if word_list[i] > word:
         # search the first half
         return in_bisect(word_list[:i], word)

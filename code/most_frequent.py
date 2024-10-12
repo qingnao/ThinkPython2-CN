@@ -53,7 +53,7 @@ def read_file(filename):
 
 
 if __name__ == '__main__':
-    string = read_file('emma.txt')
+    string = read_file('/Users/dengwentao/work/python_project/ThinkPython2-CN/code/emma.txt')
     letter_seq = most_frequent(string)
     for x in letter_seq:
         print(x)

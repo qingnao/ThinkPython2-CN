@@ -68,6 +68,7 @@ def process_word(word, order=2):
     except KeyError:
         # if there is no entry for this prefix, make one
         suffix_map[prefix] = [word]
+    # 这个写法真让我感到惊喜，通过try except来处理这种情况。如果没有这个前缀，创造一个。
 
     prefix = shift(prefix, word)
 
@@ -98,6 +99,7 @@ def random_text(n=100):
 
 def shift(t, word):
     """Forms a new tuple by removing the head and adding word to the tail.
+    通过移除头部，并在尾部增加一个单词形成元组。
 
     t: tuple of strings
     word: string
@@ -107,7 +109,7 @@ def shift(t, word):
     return t[1:] + (word,)
 
 
-def main(script, filename='158-0.txt', n=100, order=2):
+def main(script, filename='/Users/dengwentao/work/python_project/ThinkPython2-CN/code/158-0.txt', n=100, order=2):
     try:
         n = int(n)
         order = int(order)

@@ -19,7 +19,15 @@ def has_duplicates(t):
 
     t: sequence
     """
+    # d = {}
+    # for x in t:
+    #     if x in d:
+    #         return True
+    #     d[x] = True
+    # return False
+
     d = {}
+    # 进行循环遍历，判断元素是否存在字典中，如果存在就返回true，否则放入字典。循环结束时返回false。
     for x in t:
         if x in d:
             return True
@@ -34,6 +42,7 @@ def has_duplicates2(t):
 
     t: sequence
     """
+    # 这个就简单多了，直接判断长度，如果是set集合，有重复的长度会减少。高下立判，不用循环遍历。
     return len(set(t)) < len(t)
 
 
