@@ -1629,7 +1629,7 @@
         "kind": 6,
         "importPath": "code.BadKangaroo",
         "description": "code.BadKangaroo",
-        "peekOfCode": "class Kangaroo:\n    \"\"\"A Kangaroo is a marsupial.\"\"\"\n    def __init__(self, name, contents=[]):\n        \"\"\"Initialize the pouch contents.\n        name: string\n        contents: initial pouch contents.\n        \"\"\"\n        self.name = name\n        self.pouch_contents = contents\n    def __str__(self):",
+        "peekOfCode": "class Kangaroo:\n    \"\"\"A Kangaroo is a marsupial.\"\"\"\n    # 在Python中，如果一个函数或方法的参数使用了一个可变对象（例如列表、字典等）作为默认值，\n    # 那么所有使用该默认值的对象都会共享一个对象。\n    def __init__(self, name, contents=None):\n        \"\"\"Initialize the pouch contents.\n        name: string\n        contents: initial pouch contents.\n        \"\"\"\n        self.name = name",
         "detail": "code.BadKangaroo",
         "documentation": {}
     },
@@ -1638,7 +1638,7 @@
         "kind": 5,
         "importPath": "code.BadKangaroo",
         "description": "code.BadKangaroo",
-        "peekOfCode": "kanga = Kangaroo('Kanga')\nroo = Kangaroo('Roo')\nkanga.put_in_pouch('wallet')\nkanga.put_in_pouch('car keys')\nkanga.put_in_pouch(roo)\nprint(kanga)\n# If you run this program as is, it seems to work.\n# To see the problem, trying printing roo.\n# Hint: to find the problem try running pylint.",
+        "peekOfCode": "kanga = Kangaroo('Kanga')\nroo = Kangaroo('Roo')\n# kanga.put_in_pouch('wallet')\n# kanga.put_in_pouch('car keys')\nkanga.put_in_pouch(roo)\nprint(kanga)\n# If you run this program as is, it seems to work.\n# To see the problem, trying printing roo.\n# Hint: to find the problem try running pylint.",
         "detail": "code.BadKangaroo",
         "documentation": {}
     },
@@ -1647,7 +1647,7 @@
         "kind": 5,
         "importPath": "code.BadKangaroo",
         "description": "code.BadKangaroo",
-        "peekOfCode": "roo = Kangaroo('Roo')\nkanga.put_in_pouch('wallet')\nkanga.put_in_pouch('car keys')\nkanga.put_in_pouch(roo)\nprint(kanga)\n# If you run this program as is, it seems to work.\n# To see the problem, trying printing roo.\n# Hint: to find the problem try running pylint.",
+        "peekOfCode": "roo = Kangaroo('Roo')\n# kanga.put_in_pouch('wallet')\n# kanga.put_in_pouch('car keys')\nkanga.put_in_pouch(roo)\nprint(kanga)\n# If you run this program as is, it seems to work.\n# To see the problem, trying printing roo.\n# Hint: to find the problem try running pylint.",
         "detail": "code.BadKangaroo",
         "documentation": {}
     },
@@ -4304,6 +4304,15 @@
         "description": "code.walk",
         "peekOfCode": "def walk2(dirname):\n    \"\"\"Prints the names of all files in dirname and its subdirectories.\n    This is the exercise solution, which uses os.walk.\n    dirname: string name of directory\n    \"\"\"\n    for root, dirs, files in os.walk(dirname):\n        for filename in files:\n            print(os.path.join(root, filename))\nif __name__ == '__main__':\n    walk('.')",
         "detail": "code.walk",
+        "documentation": {}
+    },
+    {
+        "label": "linecount",
+        "kind": 2,
+        "importPath": "code.wc",
+        "description": "code.wc",
+        "peekOfCode": "def linecount(filename):\n    count = 0\n    for line in filename:\n        count += 1\n    return count\n# 通常，当你导入一个模块，只应定义新的函数，而不应该执行它们。\n# 如果需要将程序作为模块导入，通常遵循下面的写法：\nif __name__ == '__main__':  \n    print(linecount('wc.py'))\n# __name__是一个内置变量，程序运行便被赋值，当作脚本运行时就是 '__main__'。",
+        "detail": "code.wc",
         "documentation": {}
     },
     {

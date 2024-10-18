@@ -62,6 +62,8 @@ class Kangaroo:
         # As a general rule, you should avoid using a mutable
         # object as a default value, unless you really know
         # what you are doing.
+        
+        # 一般应该不要选择可变对象作为默认值，多个对象创建时，它们会共享数据。除非你知道自己在做什么。
         self.name = name
         if contents == None:
             contents = []

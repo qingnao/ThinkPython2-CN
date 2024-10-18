@@ -22,13 +22,17 @@ you DO NOT want to emulate this example!
 class Kangaroo:
     """A Kangaroo is a marsupial."""
     
-    def __init__(self, name, contents=[]):
+    # 在Python中，如果一个函数或方法的参数使用了一个可变对象（例如列表、字典等）作为默认值，
+    # 那么所有使用该默认值的对象都会共享一个对象。
+    def __init__(self, name, contents=None):
         """Initialize the pouch contents.
 
         name: string
         contents: initial pouch contents.
         """
         self.name = name
+        if contents is None:
+            contents = []
         self.pouch_contents = contents
 
     def __str__(self):
@@ -50,8 +54,8 @@ class Kangaroo:
 
 kanga = Kangaroo('Kanga')
 roo = Kangaroo('Roo')
-kanga.put_in_pouch('wallet')
-kanga.put_in_pouch('car keys')
+# kanga.put_in_pouch('wallet')
+# kanga.put_in_pouch('car keys')
 kanga.put_in_pouch(roo)
 
 print(kanga)
