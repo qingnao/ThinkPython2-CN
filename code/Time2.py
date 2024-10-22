@@ -41,6 +41,11 @@ class Time:
         minutes = self.hour * 60 + self.minute
         seconds = minutes * 60 + self.second
         return seconds
+    
+    def __lt__(self, other):
+        t1 = self.hour, self.minute, self.second
+        t2 = other.hour, other.minute, other.second
+        return t1 > t2
 
     def is_after(self, other):
         """Returns True if t1 is after t2; false otherwise."""
